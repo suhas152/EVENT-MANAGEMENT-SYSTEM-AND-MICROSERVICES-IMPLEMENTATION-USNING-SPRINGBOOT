@@ -1,0 +1,47 @@
+package com.klef.fsd.sdp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.fsd.sdp.model.UserModel;
+import com.klef.fsd.sdp.repository.UserRepository;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository repository;
+
+	@Override
+	public String addUser(UserModel user) {
+		
+		return null;
+	}
+
+	@Override
+	public String updateUser(UserModel user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteUser(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserModel> displayAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserModel displayByid(int uid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

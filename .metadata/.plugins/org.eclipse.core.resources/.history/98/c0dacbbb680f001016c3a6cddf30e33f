@@ -1,0 +1,12 @@
+package com.klef.fsd.sdp.service;
+
+import org.springframework.stereotype.Service;
+
+import com.klef.fsd.sdp.repository.UserRepository;
+
+@Service
+public class UserServiceImpl {
+
+	au
+	private UserRepository repository;
+}

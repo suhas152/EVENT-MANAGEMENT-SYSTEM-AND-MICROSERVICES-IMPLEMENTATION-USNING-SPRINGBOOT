@@ -1,0 +1,62 @@
+package com.klef.fsd.sdp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.fsd.sdp.model.UserModel;
+import com.klef.fsd.sdp.repository.UserRepository;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository repository;
+
+	@Override
+	public String addUser(UserModel user) {
+		repository.save(user);
+		return "user added successfully";
+	}
+
+	@Override
+	public String updateUser(UserModel user) {
+	Optional<UserModel> obj=repository.findById(user.getId());
+	if(obj.isPresent()) {
+		UserModel u=obj.get();
+		u.setAge(user.getAge());
+		u.setName(user.getName());
+		u.setGender(user.getGender());
+		u.setEmail(user.getEmail());
+		repository.save(u);
+		return "user updated successfully";
+	}else {
+		return "User id not found";
+		}
+		
+	}
+
+	@Override
+	public String deleteUser(int id) {
+	Optional<UserModel> object =repository.findById(id);
+	if(object.isPresent()) {
+		UserModel u=object.get();
+		repository.delete(u);
+	}
+	}
+
+	@Override
+	public List<UserModel> displayAllUsers() {
+		return (List<UserModel>) repository.findAll();
+		
+	}
+
+	@Override
+	public UserModel displayByid(int uid) {
+		
+		return null;
+	}
+	
+}
